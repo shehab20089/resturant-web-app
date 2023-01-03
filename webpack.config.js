@@ -7,12 +7,18 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     static: "./dist",
+    compress: true,
+    port: 3001,
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
